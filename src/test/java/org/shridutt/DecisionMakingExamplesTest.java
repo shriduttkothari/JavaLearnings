@@ -17,9 +17,9 @@ class DecisionMakingExamplesTest {
 
     @Test
     void testIsGreaterThanFifteen() {
-        assertEquals(false, classUnderTest.isGreaterThanFifteen(14));
-        assertEquals(false, classUnderTest.isGreaterThanFifteen(15));
-        assertEquals(true, classUnderTest.isGreaterThanFifteen(16));
+        assertFalse(classUnderTest.isGreaterThanFifteen(14));
+        assertFalse(classUnderTest.isGreaterThanFifteen(15));
+        assertTrue(classUnderTest.isGreaterThanFifteen(16));
     }
 
     @Test
