@@ -19,6 +19,7 @@ class StringExamplesTest {
     void testReverseInputString() {
         assertEquals("ttudirhS", classUnderTest.reverseInputString("Shridutt"));
         assertEquals("        ", classUnderTest.reverseInputString("        "));
+        assertEquals("", classUnderTest.reverseInputString(""));
         assertNull(classUnderTest.reverseInputString(null));
     }
 }
