@@ -35,6 +35,4 @@ class DecisionMakingExamplesTest {
         assertThrows(IllegalArgumentException.class, () -> classUnderTest.doubleTheInputIfInRangeOfFiveToTen(11), "Invalid input!");
 
     }
-
-
 }
