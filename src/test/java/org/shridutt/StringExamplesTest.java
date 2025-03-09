@@ -1,17 +1,19 @@
 package org.shridutt;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//We need to use this : @TestInstance(TestInstance.Lifecycle.PER_CLASS) so we don't need to make @BeforeAll setup method static in Junit 5
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class StringExamplesTest {
 
-    private static StringExamples classUnderTest;
+    private StringExamples classUnderTest;
 
     @BeforeAll
-    static void setUp() {
+    void setUp() {
         classUnderTest = new StringExamples();
     }
 
