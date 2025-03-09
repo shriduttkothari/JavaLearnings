@@ -36,9 +36,9 @@ class ArraysExampleTest {
 
     @Test
     void testSumOfMultiDimensionalArrayElements() {
-        int[][] input = {{10, 10}, {1, 1}};
+        int[][] input = {{10, 10}, {1}, {1, 1}};
         int result = arraysExample.sumOfMultiDimensionalArrayElements(input);
-        assertEquals(22, result);
+        assertEquals(23, result);
     }
 
 }
