@@ -14,6 +14,38 @@ package org.shridutt.ds.patterns.slidingwindow;
  * Output: 7
  * Explanation: Subarray with maximum sum is [3, 4].
  */
-public class ContiguousSubArray {
+class ContiguousSubArray {
+
+    public int maximumSumInContiguousSubArray(int inputArray[], int windowSize) {
+        int maxSum = 0;
+
+        //handle case when array size is zero: return sum of array
+        if (inputArray.length == 0) {
+            return maxSum;
+        }
+        //handle case when windowSize > array size: return sum of array
+        if (windowSize > inputArray.length) {
+            for (int index = 0; index < inputArray.length; index++) {
+                maxSum += inputArray[index];
+            }
+            return maxSum;
+        }
+
+        int windowSum = 0;
+        for (int index = 0; index < windowSize; index++) {
+            windowSum += inputArray[index];
+        }
+        maxSum = windowSum;
+
+        for (int index = windowSize; index < inputArray.length; index++) {
+            int itemToAddIntoWindowSum = inputArray[index];
+            int itemToRemoveFromWindowSum = inputArray[index - windowSize];
+            windowSum = windowSum + itemToAddIntoWindowSum - itemToRemoveFromWindowSum;
+            maxSum = Math.max(maxSum, windowSum);
+        }
+
+        return maxSum;
+    }
+
 
 }
