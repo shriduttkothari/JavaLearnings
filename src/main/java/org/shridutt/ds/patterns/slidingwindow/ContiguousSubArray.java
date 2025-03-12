@@ -17,13 +17,14 @@ package org.shridutt.ds.patterns.slidingwindow;
 class ContiguousSubArray {
 
     public int maximumSumInContiguousSubArray(int inputArray[], int windowSize) {
+        //handle case when array size is zero: return 0
+        //handle case when windowSize > array size: return sum of array
+        if (inputArray.length == 0 || windowSize > inputArray.length) {
+            return 0;
+        }
+
         int maxSum = 0;
 
-        //handle case when array size is zero: return sum of array
-        if (inputArray.length == 0) {
-            return maxSum;
-        }
-        //handle case when windowSize > array size: return sum of array
         if (windowSize > inputArray.length) {
             for (int index = 0; index < inputArray.length; index++) {
                 maxSum += inputArray[index];

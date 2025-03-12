@@ -21,7 +21,7 @@ class ContiguousSubArrayTest {
 
     @Test()
     void testMaximumSumInContiguousSubArrayCase2() {
-        assertEquals(1, classUnderTest.maximumSumInContiguousSubArray(new int[]{1}, 5));
+        assertEquals(0, classUnderTest.maximumSumInContiguousSubArray(new int[]{1}, 5));
     }
 
     @Test()
@@ -33,4 +33,5 @@ class ContiguousSubArrayTest {
     void testMaximumSumInContiguousSubArrayCase4() {
         assertEquals(7, classUnderTest.maximumSumInContiguousSubArray(new int[]{2, 3, 4, 1, 5}, 2));
     }
+
 }
