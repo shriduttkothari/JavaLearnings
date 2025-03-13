@@ -38,4 +38,13 @@ class LongestSubStringTest {
         assertEquals(4, classUnderTest.findLongestSubstringLength("araaci", 2));
     }
 
+    @Test
+    void case2() {
+        assertEquals(2, classUnderTest.findLongestSubstringLength("araaci", 1));
+    }
+
+    @Test
+    void case3() {
+        assertEquals(5, classUnderTest.findLongestSubstringLength("cbbebi", 3));
+    }
 }
