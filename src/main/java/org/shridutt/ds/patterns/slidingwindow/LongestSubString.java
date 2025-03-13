@@ -27,6 +27,10 @@ import java.util.Map;
 public class LongestSubString {
 
     public int findLongestSubstringLength(String input, int k) {
+        if (input == null || input.length() == 0 || input.length() < k) {
+            throw new IllegalArgumentException("Invalid input value");
+        }
+
         int longestSubStringLength = Integer.MIN_VALUE;
         int leftIndex = 0;
         Map<Character, Integer> distinctCharacters = new HashMap<>();

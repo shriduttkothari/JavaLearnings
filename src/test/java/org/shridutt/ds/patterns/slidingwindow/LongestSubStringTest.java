@@ -3,7 +3,8 @@ package org.shridutt.ds.patterns.slidingwindow;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Given a string, find the length of the longest substring in it with no more than K distinct characters.
@@ -46,5 +47,20 @@ class LongestSubStringTest {
     @Test
     void case3() {
         assertEquals(5, classUnderTest.findLongestSubstringLength("cbbebi", 3));
+    }
+
+    @Test
+    void case4() {
+        assertThrows(IllegalArgumentException.class, () -> classUnderTest.findLongestSubstringLength(null, 2));
+    }
+
+    @Test
+    void case5() {
+        assertThrows(IllegalArgumentException.class, () -> classUnderTest.findLongestSubstringLength("", 2));
+    }
+
+    @Test
+    void case6() {
+        assertThrows(IllegalArgumentException.class, () -> classUnderTest.findLongestSubstringLength("a", 10));
     }
 }
