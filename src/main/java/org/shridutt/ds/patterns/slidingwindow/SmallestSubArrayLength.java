@@ -19,6 +19,8 @@ package org.shridutt.ds.patterns.slidingwindow;
  * Output: 3
  * Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 4, 1] or [1, 1, 6].
  */
+
+//Solution explanation for future : https://www.youtube.com/watch?v=jKF9AcyBZ6E
 public class SmallestSubArrayLength {
 
     public int smallestSubArrayLength(int[] inputArray, int s) {
