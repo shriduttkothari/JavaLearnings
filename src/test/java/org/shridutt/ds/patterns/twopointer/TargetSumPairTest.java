@@ -32,28 +32,31 @@ class TargetSumPairTest {
 
     @Test
     void case1() {
-        assertArrayEquals(new int[]{1, 3}, clasUnderTest.findPairWithSum(new int[]{1, 2, 3, 4, 6}, 6));
+        assertArrayEquals(new int[]{1, 3}, clasUnderTest.findPairWithSumUsingTwoPointer(new int[]{1, 2, 3, 4, 6}, 6));
+        assertArrayEquals(new int[]{1, 3}, clasUnderTest.findPairWithSumWithoutTwoPointer(new int[]{1, 2, 3, 4, 6}, 6));
     }
 
     @Test
     void case2() {
-        assertArrayEquals(new int[]{0, 2}, clasUnderTest.findPairWithSum(new int[]{2, 5, 9, 11}, 11));
+        assertArrayEquals(new int[]{0, 2}, clasUnderTest.findPairWithSumUsingTwoPointer(new int[]{2, 5, 9, 11}, 11));
+        assertArrayEquals(new int[]{0, 2}, clasUnderTest.findPairWithSumWithoutTwoPointer(new int[]{2, 5, 9, 11}, 11));
     }
 
     @Test
     void case3() {
-        assertArrayEquals(new int[]{-1, -1}, clasUnderTest.findPairWithSum(new int[]{1,1}, 4));
+        assertArrayEquals(new int[]{-1, -1}, clasUnderTest.findPairWithSumUsingTwoPointer(new int[]{1,1}, 4));
+        assertArrayEquals(new int[]{-1, -1}, clasUnderTest.findPairWithSumWithoutTwoPointer(new int[]{1,1}, 4));
     }
 
     @Test
     void case4() {
-        assertThrows(IllegalArgumentException.class, () -> clasUnderTest.findPairWithSum(new int[]{}, 4));
+        assertThrows(IllegalArgumentException.class, () -> clasUnderTest.findPairWithSumUsingTwoPointer(new int[]{}, 4));
+        assertThrows(IllegalArgumentException.class, () -> clasUnderTest.findPairWithSumWithoutTwoPointer(new int[]{}, 4));
     }
 
     @Test
     void case5() {
-        assertThrows(IllegalArgumentException.class, () -> clasUnderTest.findPairWithSum(new int[]{1}, 4));
+        assertThrows(IllegalArgumentException.class, () -> clasUnderTest.findPairWithSumUsingTwoPointer(new int[]{1}, 4));
+        assertThrows(IllegalArgumentException.class, () -> clasUnderTest.findPairWithSumWithoutTwoPointer(new int[]{1}, 4));
     }
-
-
 }
