@@ -1,4 +1,4 @@
-package org.shridutt;
+package org.shridutt.java;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

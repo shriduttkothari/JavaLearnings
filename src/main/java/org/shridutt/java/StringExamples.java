@@ -1,4 +1,4 @@
-package org.shridutt;
+package org.shridutt.java;
 
 public class StringExamples {
 

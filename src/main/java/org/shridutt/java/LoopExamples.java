@@ -1,4 +1,4 @@
-package org.shridutt;
+package org.shridutt.java;
 
 import java.util.ArrayList;
 import java.util.Calendar;
