@@ -3,7 +3,8 @@ package org.shridutt.ds.patterns.slidingwindow;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Given a string, find the length of the longest substring which has no repeating characters.
@@ -50,4 +51,15 @@ class LongestSubstringLengthTest {
     private void case3() {
         assertEquals(3, classUnderTest.longestSubstringLength("abccde"));
     }
+
+    @Test
+    private void case4() {
+        assertThrows(IllegalArgumentException.class, () -> classUnderTest.longestSubstringLength(null));
+    }
+
+    @Test
+    private void case5() {
+        assertThrows(IllegalArgumentException.class, () -> classUnderTest.longestSubstringLength(""));
+    }
+
 }
