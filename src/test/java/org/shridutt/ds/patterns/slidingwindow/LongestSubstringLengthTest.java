@@ -38,27 +38,27 @@ class LongestSubstringLengthTest {
     }
 
     @Test
-    private void case1() {
+    void case1() {
         assertEquals(3, classUnderTest.longestSubstringLength("aabccbb"));
     }
 
     @Test
-    private void case2() {
+    void case2() {
         assertEquals(2, classUnderTest.longestSubstringLength("abbbb"));
     }
 
     @Test
-    private void case3() {
+    void case3() {
         assertEquals(3, classUnderTest.longestSubstringLength("abccde"));
     }
 
     @Test
-    private void case4() {
+    void case4() {
         assertThrows(IllegalArgumentException.class, () -> classUnderTest.longestSubstringLength(null));
     }
 
     @Test
-    private void case5() {
+    void case5() {
         assertThrows(IllegalArgumentException.class, () -> classUnderTest.longestSubstringLength(""));
     }
 

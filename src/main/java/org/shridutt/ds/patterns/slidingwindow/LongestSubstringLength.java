@@ -24,8 +24,11 @@ package org.shridutt.ds.patterns.slidingwindow;
 public class LongestSubstringLength {
 
     public int longestSubstringLength(String input) {
-        int longestSubstringLength = Integer.MIN_VALUE;
+        if(input == null || input.length() == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
 
+        int longestSubstringLength = Integer.MIN_VALUE;
 
 
         return longestSubstringLength != Integer.MIN_VALUE ? longestSubstringLength : 0;
