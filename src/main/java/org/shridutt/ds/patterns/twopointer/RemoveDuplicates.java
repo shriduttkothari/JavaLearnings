@@ -20,7 +20,15 @@ public class RemoveDuplicates {
             return input.length;
         }
 
-        int length = 0;
+        int length = input.length;
+        int left = 0;
+        for (int right = 1; right < input.length; right++) {
+            if(input[left] == input[right]) {
+                length--;
+            } else {
+                left = right;
+            }
+        }
 
         return length;
     }
