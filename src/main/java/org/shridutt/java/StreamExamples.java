@@ -1,6 +1,13 @@
 package org.shridutt.java;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamExamples {
@@ -9,7 +16,7 @@ public class StreamExamples {
      * stream.flatMap() example
      */
     public List<String> getCustomerPhoneNumbers(List<Customer> customerList) {
-        List<String> customerPhoneNumbers = customerList.stream().flatMap(customer -> customer.getPhoneNumbers().stream()).collect(Collectors.toList());
+        var customerPhoneNumbers = customerList.stream().flatMap(customer -> customer.getPhoneNumbers().stream()).collect(Collectors.toList());
         return customerPhoneNumbers;
     }
 
@@ -17,57 +24,93 @@ public class StreamExamples {
      * stream.map() example
      */
     public List<String> getCustomerNames(List<Customer> customerList) {
-        List<String> customerNames = customerList.stream().map(customer -> customer.getName()).collect(Collectors.toList());
+        var customerNames = customerList.stream().map(customer -> customer.getName()).collect(Collectors.toList());
         return customerNames;
     }
 
+    /**
+     * stream.reduce() example with initial value 0
+     */
+    public int getSumOfCustomerIds_ex1(List<Customer> customerList) {
+        //reduce takes first arg as initial value, so if we want to do sum, we pass 0
+        return customerList.stream().map(customer -> customer.getId()).reduce(0, (a, b) -> a + b);
+    }
+
+    /**
+     * stream.reduce() example with method reference
+     */
+    public int getSumOfCustomerIds_ex2(List<Customer> customerList) {
+        //reduce also takes method reference or lambda and returns optional
+        return customerList.stream().map(customer -> customer.getId()).reduce(Integer::sum).get();
+    }
+
+    /**
+     * stream.reduce() example with lambda
+     */
+    public int getSumOfCustomerIds_ex3(List<Customer> customerList) {
+        //reduce also takes method reference or lambda and returns optional
+        return customerList.stream().map(customer -> customer.getId()).reduce((a, b) -> a + b).get();
+    }
+
+    /**
+     * stream.reduce() example with initial value 0
+     */
+    public int getMaxOfCustomerIds_ex1(List<Customer> customerList) {
+        //reduce takes first arg as initial value, so if we want to  compare, we pass 0
+        return customerList.stream().map(customer -> customer.getId()).reduce(0, (a, b) -> a > b ? a : b);
+    }
+
+    /**
+     * stream.reduce() example with method reference
+     */
+    public int getMaxOfCustomerIds_ex2(List<Customer> customerList) {
+        //reduce also takes method reference or lambda and returns optional
+        return customerList.stream().map(customer -> customer.getId()).reduce(Integer::max).get();
+    }
+
+    /**
+     * stream.reduce() example with lambda
+     */
+    public int getMaxOfCustomerIds_ex3(List<Customer> customerList) {
+        //reduce also takes method reference or lambda and returns optional
+        return customerList.stream().map(customer -> customer.getId()).reduce((a, b) -> a > b ? a : b).get();
+    }
+
+    /**
+     * stream.reduce() example with initial value 1
+     */
+    public int getMultiplicationOfCustomerIds(List<Customer> customerList) {
+        //reduce takes first arg as initial value, so if we want to do multiplication we shall pass 1
+        return customerList.stream().map(customer -> customer.getId()).reduce(1, (a, b) -> a * b);
+    }
+
+
+    /**
+     * stream.mapToDouble() example with average method
+     */
+    public double getAverageOfCustomerIds(List<Customer> customerList) {
+        //mapToDouble returns DoubleStream class
+        return customerList.stream().map(customer -> customer.getId()).mapToInt(i -> i).average().getAsDouble();
+    }
+
+    public Map<Integer, List<Customer>> groupedCustomersByAge(List<Customer> customers) {
+
+        Map<Integer, List<Customer>> groupedCustomersByAge = customers.stream().collect(Collectors.groupingBy(customer -> customer.getAge()));
+
+        return groupedCustomersByAge;
+    }
+
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class Customer {
         private int id;
         private String name;
         private String email;
+        private int age;
         private List<String> phoneNumbers;
 
-        public Customer() {
-        }
-
-        public Customer(int id, String name, String email, List<String> phoneNumbers) {
-            this.id = id;
-            this.name = name;
-            this.email = email;
-            this.phoneNumbers = phoneNumbers;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
-        public List<String> getPhoneNumbers() {
-            return phoneNumbers;
-        }
-
-        public void setPhoneNumbers(List<String> phoneNumbers) {
-            this.phoneNumbers = phoneNumbers;
-        }
     }
 
 }

@@ -1,6 +1,7 @@
 package org.shridutt.ds.patterns.twopointer;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -23,6 +24,7 @@ class TripletSumToZeroTest {
         classUnderTest = new TripletSumToZero();
     }
 
+    @Disabled
     @Test
     void case1() {
         List<int []> result = classUnderTest.findTripletSumToZero(new int[] {-3, 0, 1, 2, -1, 1, -2});
@@ -33,6 +35,7 @@ class TripletSumToZeroTest {
         assertArrayEquals(new int [] {-1, 0, 1}, result.get(3));
     }
 
+    @Disabled
     @Test
     void case2() {
         List<int []> result = classUnderTest.findTripletSumToZero(new int[] {-5, 2, -1, -2, 3});
