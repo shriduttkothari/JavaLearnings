@@ -4,19 +4,32 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
 public class StreamExamples {
+
+
+    public String convertFirstTwoCharsToUppercase(String input) {
+        String[] wordsArray = input.split(" ");
+        String result = Arrays.stream(wordsArray)
+                .map(word -> word.length() > 1 ? word.substring(0, 2).toUpperCase() + word.substring(2)
+                        : word.toUpperCase()
+                ).collect(Collectors.joining(" "));
+        return result;
+    }
+
 
     /**
      * stream.flatMap() example
      */
     public List<String> getCustomerPhoneNumbers(List<Customer> customerList) {
-        var customerPhoneNumbers = customerList.stream().flatMap(customer -> customer.getPhoneNumbers().stream()).collect(Collectors.toList());
+        var customerPhoneNumbers = customerList.stream() //Stream<Customer>
+                .flatMap(customer -> customer.getPhoneNumbers().stream())
+                .collect(Collectors.toList());
         return customerPhoneNumbers;
     }
 
@@ -113,4 +126,16 @@ public class StreamExamples {
 
     }
 
+//    private class Employee {
+//
+//        private final String name;
+//
+//        private Employee(String name) {
+//            this.name = name;
+//        }
+//    }
+
+    private record Employee(String name) {
+    }
 }
+

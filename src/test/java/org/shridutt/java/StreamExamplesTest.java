@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -20,6 +19,12 @@ class StreamExamplesTest {
     @BeforeAll
     static void setup() {
         classUnderTest = new StreamExamples();
+    }
+
+    @Test
+    void testConvertString() {
+        //convert "this is test" into "THis IS TEst"
+        assertEquals("THis IS TEst", classUnderTest.convertFirstTwoCharsToUppercase("this is test"));
     }
 
     @Test
@@ -104,6 +109,5 @@ class StreamExamplesTest {
         assertEquals(1, groupedCustomersByAge.get(60).size());
 
     }
-
 
 }
